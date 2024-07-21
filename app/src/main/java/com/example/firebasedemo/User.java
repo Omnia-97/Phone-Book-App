@@ -1,30 +1,47 @@
 package com.example.firebasedemo;
 
-public class User {
-    String name;
-    String email;
+import androidx.databinding.BaseObservable;
+import androidx.databinding.Bindable;
 
-    public User(String name, String email) {
-        this.name = name;
-        this.email = email;
+public class User extends BaseObservable {
+  String userName;
+  String phoneNum;
+  String groupName;
+
+    public User(String userName, String phoneNum, String groupName) {
+        this.userName = userName;
+        this.phoneNum = phoneNum;
+        this.groupName = groupName;
     }
 
     public User() {
     }
 
-    public String getName() {
-        return name;
+    @Bindable
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
+        notifyPropertyChanged(BR.userName);
+    }
+    @Bindable
+    public String getPhoneNum() {
+        return phoneNum;
     }
 
-    public String getEmail() {
-        return email;
+    public void setPhoneNum(String phoneNum) {
+        this.phoneNum = phoneNum;
+        notifyPropertyChanged(BR.phoneNum);
+    }
+    @Bindable
+    public String getGroupName() {
+        return groupName;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
+        notifyPropertyChanged(BR.groupName);
     }
 }
